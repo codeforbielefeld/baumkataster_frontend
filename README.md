@@ -1,20 +1,26 @@
-Baumkataster - Flutter Project
+# Baumkataster - Flutter Project
+
 Welcome to our Baumkataster project! This project is a mobile application that has been built using the Flutter framework and Dart programming language.
 
-Getting Started
-Install the Flutter SDK by following the instructions here.
-Clone the repository by running git clone https://github.com/codeforbielefeld/baumkataster_frontend.git in your terminal.
-Navigate to the project directory by running cd baumkataster_frontend.
-Run flutter packages get to install the dependencies.
-Connect your device or launch an emulator.
-Run flutter run to start the application.
-Contribution
+## Getting Started
+
+1. Install the Flutter SDK by following the instructions [here](https://flutter.dev/docs/get-started/install).
+2. Clone the repository by running `git clone https://github.com/codeforbielefeld/baumkataster_frontend.git` in your terminal.
+3. Navigate to the project directory by running `cd baumkataster_frontend`.
+4. Run `flutter packages get` to install the dependencies.
+5. Connect your device or launch an emulator.
+6. Run `flutter run` to start the application.
+
+## Contribution
+
 We welcome contributions to this project. If you would like to make a change or add a new feature, please create a fork of the repository and submit a pull request.
 
-License
-This project is licensed under the MIT License - see the LICENSE file for details.
+## License
 
-MIT License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## MIT License
+
 Copyright (c) 2023 Daniel Baron
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
