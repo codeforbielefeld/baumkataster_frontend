@@ -24,6 +24,7 @@ class AppView extends StatelessWidget {
             debugShowCheckedModeBanner: false,
             routerConfig: AppRouter(),
             title: 'Baumkataster',
+            
           );
         }
       },
