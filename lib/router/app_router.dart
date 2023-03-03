@@ -1,3 +1,5 @@
+import 'package:baumkataster_frontend/app/view/app_view.dart';
+import 'package:baumkataster_frontend/app/view/baum_view.dart';
 import 'package:baumkataster_frontend/impressum/view/impressum_view.dart';
 import 'package:baumkataster_frontend/openstreetmap/view/map_view.dart';
 import 'package:go_router/go_router.dart';
@@ -6,21 +8,26 @@ class AppRouter extends GoRouter {
   AppRouter()
       : super(
           initialLocation: AppRoutes.home,
-          routes: <GoRoute>[
-            // This configures the home route
-            GoRoute(
-              path: AppRoutes.home,
-              builder: (context, state) {
-                return const MapView();
+          routes: [
+            ShellRoute(
+              builder: (context, state, child) {
+                return AppView(childView: child);
               },
-            ),
-            // This configures the impressum route
-            GoRoute(
-              path: AppRoutes.impressum,
-              builder: (context, state) {
-                return const ImpressumView();
-              },
-            ),
+              routes: [
+                GoRoute(
+                  path: AppRoutes.home,
+                  builder: (context, state) {
+                    return MapView();
+                  },
+                ),
+                GoRoute(
+                  path: AppRoutes.impressum,
+                  builder: (context, state) {
+                    return const ImpressumView();
+                  },
+                ),
+              ],
+            )
           ],
         );
 }
