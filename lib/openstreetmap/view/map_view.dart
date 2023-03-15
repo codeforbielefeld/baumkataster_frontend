@@ -44,6 +44,24 @@ class MapView extends StatelessWidget {
             urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
             userAgentPackageName: 'com.example.app',
           ),
+          // MarkerLayer(
+          //   markers: [
+          //     Marker(
+          //       width: 80.0,
+          //       height: 80.0,
+          //       point: LatLng(52.0207441, 8.5324624),
+          //       builder: (ctx) => Container(
+          //         child: IconButton(
+          //           icon: Icon(Icons.location_on),
+          //           color: Colors.red,
+          //           iconSize: 45.0,
+          //           onPressed: () {
+          //           },
+          //         ),
+          //       ),
+          //     ),
+          //   ],
+          // ),
           Query(
             options: QueryOptions(
               document: gql(r'''
@@ -56,11 +74,11 @@ class MapView extends StatelessWidget {
                       }
               '''),
               variables: {
-                'lat': 52,
-                'long': 8,
-                'radius': 1,
+                'lat': 52.0207441,
+                'long': 8.5324624,
+                'radius': 0.001,
               },
-              pollInterval: const Duration(seconds: 10),
+              pollInterval: const Duration(seconds: 1000),
               ),
             builder: (QueryResult result, { VoidCallback? refetch, FetchMore? fetchMore }) {
               if (result.hasException) {
@@ -76,14 +94,32 @@ class MapView extends StatelessWidget {
               if (trees.isEmpty) {
                 return const Text('No trees');
               }
+              return MarkerLayer(
+                markers: trees.map((tree) => Marker(
+                  width: 5.0,
+                  height: 5.0,
+                  //convert strin to double from coords
+                  point: LatLng(double.parse(tree['lat']), double.parse(tree['long'])),
+                  builder: (ctx) => Container(
+                    child: IconButton(
+                      icon: Icon(Icons.location_on),
+                      color: Colors.green,
+                      iconSize: 20.0,
+                      onPressed: () {
+                        //Navigator.pushNamed(context, AppRouter.treeView, arguments: tree);
+                      },
+                    ),
+                  ),
+                )).toList()
+              );
 
-              return ListView.builder(
-                itemCount: trees.length,
-                itemBuilder: (context, index) {
-                  final tree = trees[index];
+              // return ListView.builder(
+              //   itemCount: trees.length,
+              //   itemBuilder: (context, index) {
+              //     final tree = trees[index];
 
-                  return Text(tree['name'] ?? '');
-              });
+              //     return Text(tree['name'] ?? '');
+              // });
             },
             )
         ],
