@@ -16,6 +16,7 @@ class AppView extends StatefulWidget {
 
 class _AppViewState extends State<AppView> {
   var selectedIndex = 0;
+  bool expandChild = false;
 
   @override
   Widget build(BuildContext context) {
@@ -49,6 +50,7 @@ class _AppViewState extends State<AppView> {
                 onTap: (int index) {
                   setState(() {
                     selectedIndex = index;
+                    expandChild = index==0 ? false : true;
                   });
                   switch (index) {
                     case 0:
@@ -91,6 +93,7 @@ class _AppViewState extends State<AppView> {
                     onDestinationSelected: (int index) {
                       setState(() {
                         selectedIndex = index;
+                        expandChild = index==0 ? false : true;
                       });
                       switch (index) {
                         case 0:
@@ -100,6 +103,8 @@ class _AppViewState extends State<AppView> {
                         case 1:
                           context.go('/impressum');
                           break;
+                        case 2:
+                          break;
                         default:
                           context.go('/');
                           setState(() {
@@ -107,17 +112,25 @@ class _AppViewState extends State<AppView> {
                           });
                       }
                     },
-                    leading: Column(
-                      children: const [
-                        SizedBox(
-                          height: 8,
-                        ),
-                        CircleAvatar(
-                          radius: 20,
-                          child: Icon(Icons.person),
-                        ),
-                      ],
+                    leading: FloatingActionButton.small(
+                      onPressed: (){
+                        setState(() {
+                          expandChild = true;
+                        });
+                        context.go("/account");},
+                      child: Icon(Icons.person),
                     ),
+                    // Column(
+                    //   children: const [
+                    //     SizedBox(
+                    //       height: 8,
+                    //     ),
+                    //     CircleAvatar(
+                    //       radius: 20,
+                    //       child: Icon(Icons.person),
+                    //     ),
+                    //   ],
+                    // ),
                     // navigation rail items
                     destinations: const [
                       NavigationRailDestination(
@@ -132,7 +145,7 @@ class _AppViewState extends State<AppView> {
                     ],
                   ),
                   // if not on map view (index 0) or on mobile
-                  if (selectedIndex != 0)
+                  if (expandChild)
                     Expanded(
                       child: widget.childView,
                     )
