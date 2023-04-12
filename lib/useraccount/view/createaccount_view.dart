@@ -7,15 +7,17 @@ class CreateaccountView extends StatelessWidget {
   final TextEditingController usernameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+  final TextEditingController passwordConfirmController =
+      TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-        appBar: AppBar(
-          title: const Text('Create Account'),
-        ),
-        body:  Center(
+      appBar: AppBar(
+        title: const Text('Create Account'),
+      ),
+      body: Center(
         child: SingleChildScrollView(
           child: Container(
             width: 400,
@@ -63,7 +65,21 @@ class CreateaccountView extends StatelessWidget {
                   controller: passwordController,
                   obscureText: true,
                   decoration: InputDecoration(
+                    //password show button
+                    suffixIcon: IconButton(
+                      icon: Icon(Icons.remove_red_eye),
+                      onPressed: () {},
+                    ),
                     labelText: 'Password',
+                    border: OutlineInputBorder(),
+                  ),
+                ),
+                SizedBox(height: 16),
+                TextField(
+                  controller: passwordConfirmController,
+                  obscureText: true,
+                  decoration: InputDecoration(
+                    labelText: 'Confirm Password',
                     border: OutlineInputBorder(),
                   ),
                 ),
@@ -80,6 +96,7 @@ class CreateaccountView extends StatelessWidget {
             ),
           ),
         ),
-      ),);
+      ),
+    );
   }
 }

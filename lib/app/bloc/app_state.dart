@@ -1,11 +1,10 @@
 part of 'app_bloc.dart';
 
 abstract class AppState extends Equatable {
-  final AppUser? user;
-  const AppState({this.user});
+  const AppState();
 
   @override
-  List<Object?> get props => [user?.uid];
+  List<Object?> get props => [];
 }
 
 class AppLoadingState extends AppState {
