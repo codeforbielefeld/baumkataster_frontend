@@ -1,4 +1,6 @@
+import 'package:baumkataster_frontend/useraccount/bloc/user_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 
 class CreateaccountView extends StatelessWidget {
@@ -88,7 +90,12 @@ class CreateaccountView extends StatelessWidget {
                   width: double.infinity,
                   height: 50,
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      context.read<UserBloc>().add(UserRegisterEvent(
+                          username: usernameController.text,
+                          email: emailController.text,
+                          password: passwordController.text));
+                    },
                     child: Text('Submit'),
                   ),
                 ),
