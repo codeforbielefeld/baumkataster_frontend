@@ -58,7 +58,6 @@ _$_UserType _$$_UserTypeFromJson(Map<String, dynamic> json) => _$_UserType(
       email: json['email'] as String,
       isStaff: json['isStaff'] as bool,
       isActive: json['isActive'] as bool,
-      dateJoined: DateTime.parse(json['dateJoined'] as String),
     );
 
 Map<String, dynamic> _$$_UserTypeToJson(_$_UserType instance) =>
@@ -73,5 +72,4 @@ Map<String, dynamic> _$$_UserTypeToJson(_$_UserType instance) =>
       'email': instance.email,
       'isStaff': instance.isStaff,
       'isActive': instance.isActive,
-      'dateJoined': instance.dateJoined.toIso8601String(),
     };

@@ -518,7 +518,6 @@ mixin _$UserType {
 
   /// Designates whether this user should be treated as active. Unselect this instead of deleting accounts.
   bool get isActive => throw _privateConstructorUsedError;
-  DateTime get dateJoined => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -541,8 +540,7 @@ abstract class $UserTypeCopyWith<$Res> {
       String lastName,
       String email,
       bool isStaff,
-      bool isActive,
-      DateTime dateJoined});
+      bool isActive});
 }
 
 /// @nodoc
@@ -568,7 +566,6 @@ class _$UserTypeCopyWithImpl<$Res, $Val extends UserType>
     Object? email = null,
     Object? isStaff = null,
     Object? isActive = null,
-    Object? dateJoined = null,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -611,10 +608,6 @@ class _$UserTypeCopyWithImpl<$Res, $Val extends UserType>
           ? _value.isActive
           : isActive // ignore: cast_nullable_to_non_nullable
               as bool,
-      dateJoined: null == dateJoined
-          ? _value.dateJoined
-          : dateJoined // ignore: cast_nullable_to_non_nullable
-              as DateTime,
     ) as $Val);
   }
 }
@@ -636,8 +629,7 @@ abstract class _$$_UserTypeCopyWith<$Res> implements $UserTypeCopyWith<$Res> {
       String lastName,
       String email,
       bool isStaff,
-      bool isActive,
-      DateTime dateJoined});
+      bool isActive});
 }
 
 /// @nodoc
@@ -661,7 +653,6 @@ class __$$_UserTypeCopyWithImpl<$Res>
     Object? email = null,
     Object? isStaff = null,
     Object? isActive = null,
-    Object? dateJoined = null,
   }) {
     return _then(_$_UserType(
       id: null == id
@@ -704,10 +695,6 @@ class __$$_UserTypeCopyWithImpl<$Res>
           ? _value.isActive
           : isActive // ignore: cast_nullable_to_non_nullable
               as bool,
-      dateJoined: null == dateJoined
-          ? _value.dateJoined
-          : dateJoined // ignore: cast_nullable_to_non_nullable
-              as DateTime,
     ));
   }
 }
@@ -725,8 +712,7 @@ class _$_UserType extends _UserType with DiagnosticableTreeMixin {
       required this.lastName,
       required this.email,
       required this.isStaff,
-      required this.isActive,
-      required this.dateJoined})
+      required this.isActive})
       : super._();
 
   factory _$_UserType.fromJson(Map<String, dynamic> json) =>
@@ -760,12 +746,10 @@ class _$_UserType extends _UserType with DiagnosticableTreeMixin {
   /// Designates whether this user should be treated as active. Unselect this instead of deleting accounts.
   @override
   final bool isActive;
-  @override
-  final DateTime dateJoined;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'UserType(id: $id, password: $password, lastLogin: $lastLogin, isSuperuser: $isSuperuser, username: $username, firstName: $firstName, lastName: $lastName, email: $email, isStaff: $isStaff, isActive: $isActive, dateJoined: $dateJoined)';
+    return 'UserType(id: $id, password: $password, lastLogin: $lastLogin, isSuperuser: $isSuperuser, username: $username, firstName: $firstName, lastName: $lastName, email: $email, isStaff: $isStaff, isActive: $isActive)';
   }
 
   @override
@@ -782,8 +766,7 @@ class _$_UserType extends _UserType with DiagnosticableTreeMixin {
       ..add(DiagnosticsProperty('lastName', lastName))
       ..add(DiagnosticsProperty('email', email))
       ..add(DiagnosticsProperty('isStaff', isStaff))
-      ..add(DiagnosticsProperty('isActive', isActive))
-      ..add(DiagnosticsProperty('dateJoined', dateJoined));
+      ..add(DiagnosticsProperty('isActive', isActive));
   }
 
   @override
@@ -807,26 +790,13 @@ class _$_UserType extends _UserType with DiagnosticableTreeMixin {
             (identical(other.email, email) || other.email == email) &&
             (identical(other.isStaff, isStaff) || other.isStaff == isStaff) &&
             (identical(other.isActive, isActive) ||
-                other.isActive == isActive) &&
-            (identical(other.dateJoined, dateJoined) ||
-                other.dateJoined == dateJoined));
+                other.isActive == isActive));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      id,
-      password,
-      lastLogin,
-      isSuperuser,
-      username,
-      firstName,
-      lastName,
-      email,
-      isStaff,
-      isActive,
-      dateJoined);
+  int get hashCode => Object.hash(runtimeType, id, password, lastLogin,
+      isSuperuser, username, firstName, lastName, email, isStaff, isActive);
 
   @JsonKey(ignore: true)
   @override
@@ -853,8 +823,7 @@ abstract class _UserType extends UserType {
       required final String lastName,
       required final String email,
       required final bool isStaff,
-      required final bool isActive,
-      required final DateTime dateJoined}) = _$_UserType;
+      required final bool isActive}) = _$_UserType;
   const _UserType._() : super._();
 
   factory _UserType.fromJson(Map<String, dynamic> json) = _$_UserType.fromJson;
@@ -887,8 +856,6 @@ abstract class _UserType extends UserType {
 
   /// Designates whether this user should be treated as active. Unselect this instead of deleting accounts.
   bool get isActive;
-  @override
-  DateTime get dateJoined;
   @override
   @JsonKey(ignore: true)
   _$$_UserTypeCopyWith<_$_UserType> get copyWith =>

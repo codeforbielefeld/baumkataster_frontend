@@ -53,7 +53,7 @@ class UserType with _$UserType {
     required bool isStaff,
 /// Designates whether this user should be treated as active. Unselect this instead of deleting accounts.
     required bool isActive,
-    required DateTime dateJoined,
+    //required DateTime dateJoined,
   }) = _UserType;
 
   factory UserType.fromJson(Map<String, dynamic> json) => _$UserTypeFromJson(json);

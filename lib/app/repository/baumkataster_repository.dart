@@ -22,13 +22,14 @@ class BaumkatasterRepository{
         email: 'nomail',
         isStaff: false,
         isActive: true,
-        dateJoined: DateTime.now(),
+        //dateJoined: DateTime.now(),
       ),
       token: '',
     );
     
     final MutationOptions options = MutationOptions(
-      document: gql(createUserMutation.toString()),
+      //TODO: fix gql query by generating a document for graphql
+      document: gql(createUserMutation.toJson().toString()),
       variables: <String, dynamic>{
         'username': username,
         'password': password,
